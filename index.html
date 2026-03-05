@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Your Ebook Library</title>
 
@@ -11,48 +11,57 @@
 
 body{
 font-family:Arial;
+background:#0f172a;
+color:white;
 margin:0;
-background:#f5f5f5;
-}
-
-.container{
-max-width:1200px;
-margin:auto;
-padding:40px 20px;
-}
-
-.hero{
 text-align:center;
-margin-bottom:50px;
 }
 
-.books{
+header{
+padding:50px 20px;
+}
+
+h1{
+font-size:38px;
+}
+
+p{
+color:#cbd5e1;
+}
+
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:28px;
+gap:25px;
+padding:40px;
+max-width:1200px;
+margin:auto;
 }
 
 .book{
-background:white;
+background:#1e293b;
 padding:18px;
 border-radius:10px;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
-text-align:center;
 }
 
 .book img{
 width:100%;
-border-radius:6px;
+border-radius:8px;
 }
 
-.btn{
+.book a{
 display:inline-block;
-background:black;
-color:white;
+margin-top:12px;
 padding:10px 18px;
-border-radius:6px;
+background:#22c55e;
+color:white;
 text-decoration:none;
-margin-top:10px;
+border-radius:6px;
+font-weight:bold;
+}
+
+.book a:hover{
+background:#16a34a;
 }
 
 </style>
@@ -61,19 +70,12 @@ margin-top:10px;
 
 <body>
 
-<div class="container">
-
-<div class="hero">
-
+<header>
 <h1>✅ Your Book Is Ready</h1>
-
 <p>Explore more books readers love.</p>
+</header>
 
-</div>
-
-<div id="bookGrid" class="books"></div>
-
-</div>
+<div class="grid" id="books"></div>
 
 <script>
 
@@ -94,50 +96,26 @@ const books = [
 "https://selar.com/338i7s607u",
 "https://selar.com/7n24n29u1r"
 
-];
+]
 
-const grid = document.getElementById("bookGrid");
+const container=document.getElementById("books")
 
-async function loadBook(url){
+books.forEach(url=>{
 
-try{
+const card=document.createElement("div")
+card.className="book"
 
-const res = await fetch("https://api.allorigins.win/raw?url="+encodeURIComponent(url));
+card.innerHTML=`
 
-const html = await res.text();
+<img src="https://images.weserv.nl/?url=${encodeURIComponent(url)}&w=300&h=400&fit=cover">
 
-const parser = new DOMParser();
+<a href="${url}" target="_blank">View Book</a>
 
-const doc = parser.parseFromString(html,"text/html");
+`
 
-const title = doc.querySelector("meta[property='og:title']")?.content || "Book";
+container.appendChild(card)
 
-const desc = doc.querySelector("meta[property='og:description']")?.content || "";
-
-const img = doc.querySelector("meta[property='og:image']")?.content || "";
-
-const card = document.createElement("div");
-
-card.className="book";
-
-card.innerHTML = `
-<img src="${img}">
-<h3>${title}</h3>
-<p>${desc.substring(0,90)}...</p>
-<a class="btn" href="${url}" target="_blank">View Book</a>
-`;
-
-grid.appendChild(card);
-
-}catch(err){
-
-console.log("Error loading",url);
-
-}
-
-}
-
-books.forEach(loadBook);
+})
 
 </script>
 
