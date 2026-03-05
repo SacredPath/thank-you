@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Ebook Library</title>
+<title>Thank You! Your Ebook Library Awaits</title>
+
+<meta name="description" content="Thank you for your purchase! Explore our full collection of ebooks for self-improvement, productivity, health, and wealth.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="https://files.selar.co/product-images/2026/products/macson-mark1/micro-habits-for-anxiety-selar.com-698e3da310e9b.jpeg">
+
 <style>
 body{
   font-family: Arial, sans-serif;
@@ -13,17 +19,19 @@ body{
   text-align:center;
 }
 header{
-  padding:50px 20px;
+  padding:60px 20px;
 }
 h1{
-  font-size:38px;
+  font-size:36px;
+  margin-bottom:10px;
 }
 p{
   color:#cbd5e1;
+  font-size:18px;
 }
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:25px;
   padding:40px;
   max-width:1200px;
@@ -31,7 +39,7 @@ p{
 }
 .book{
   background:#1e293b;
-  padding:18px;
+  padding:15px;
   border-radius:10px;
   transition:0.3s;
 }
@@ -42,15 +50,21 @@ p{
   width:100%;
   border-radius:8px;
 }
+.book-title{
+  margin-top:8px;
+  font-size:14px;
+  font-weight:bold;
+}
 .book a{
   display:inline-block;
-  margin-top:12px;
-  padding:10px 18px;
+  margin-top:8px;
+  padding:8px 15px;
   background:#22c55e;
   color:white;
   text-decoration:none;
   border-radius:6px;
   font-weight:bold;
+  font-size:14px;
 }
 .book a:hover{
   background:#16a34a;
@@ -58,14 +72,15 @@ p{
 footer{
   margin:60px 0;
   color:#94a3b8;
+  font-size:14px;
 }
 </style>
 </head>
 <body>
 
 <header>
-<h1>✅ Your Book Is Ready</h1>
-<p>Explore more books readers love.</p>
+<h1>🎉 Thank You For Your Purchase!</h1>
+<p>You now have access to your ebook. While you wait for your download link, explore our full collection of 15 ebooks below.</p>
 </header>
 
 <div class="grid" id="books"></div>
@@ -75,29 +90,32 @@ footer{
 </footer>
 
 <script>
+// 15 books with URLs, covers, and titles
 const books = [
-  { url: "https://selar.com/25q9751553", img: "https://files.selar.co/product-images/2026/products/macson-mark1/micro-habits-for-anxiety-selar.com-698e3da310e9b.jpeg" },
-  { url: "https://selar.com/s791c09q38", img: "https://files.selar.co/product-images/2026/products/macson-mark1/micro-habits-for-tough-da-selar.com-698e40477adc0.png" },
-  { url: "https://selar.com/987ofco0w7", img: "https://files.selar.co/product-images/2026/products/macson-mark1/micro-habits-for-confiden-selar.com-698e425529f38.png" },
-  { url: "https://selar.com/7l12r21lda", img: "https://files.selar.co/product-images/2026/products/macson-mark1/micro-habit-for-focus-selar.com-698e47df737c2.png" },
-  { url: "https://selar.com/33uey731n3", img: "https://files.selar.co/product-images/2026/products/macson-mark1/micro-habits-for-sleep-selar.com-698e4ea1ca204.jpeg" },
-  { url: "https://selar.com/gh6v67n7f7", img: "https://files.selar.co/product-images/2026/products/macson-mark1/your-phone-is-enough-12-o-selar.com-69a95ae964c6c.jpeg" },
-  { url: "https://selar.com/3p6302t731", img: "https://files.selar.co/product-images/2026/products/macson-mark1/laptop-money-how-to-start-selar.com-69a95ba3b61bd.png" },
-  { url: "https://selar.com/2178r40742", img: "https://files.selar.co/product-images/2026/products/macson-mark1/side-hustle-blueprint-the-selar.com-69a95c216ebe8.png" },
-  { url: "https://selar.com/e2d205z359", img: "https://files.selar.co/product-images/2026/products/macson-mark1/the-invisible-muscle-how--selar.com-69a95cc4a7166.jpeg" },
-  { url: "https://selar.com/11720pg206", img: "https://files.selar.co/product-images/2026/products/macson-mark1/the-desk-survival-guide-selar.com-69a95d5553910.png" },
-  { url: "https://selar.com/737mseu4fl", img: "https://files.selar.co/product-images/2026/products/macson-mark1/the-belly-reset-21-days-t-selar.com-69a95dde9439a.png" },
-  { url: "https://selar.com/2772q1la67", img: "https://files.selar.co/product-images/2026/products/macson-mark1/the-10pm-decision-a-sleep-selar.com-69a95f3e51e3f.jpeg" },
-  { url: "https://selar.com/338i7s607u", img: "https://files.selar.co/product-images/2026/products/macson-mark1/diabetic-friendly-meal-pl-selar.com-69a9639b0626f.jpeg" },
-  { url: "https://selar.com/7n24n29u1r", img: "https://files.selar.co/product-images/2026/products/macson-mark1/strong-at-60-the-safe-sim-selar.com-69a971de2739a.jpeg" }
+  { url: "https://selar.com/25q9751553", img: "https://files.selar.co/product-images/2026/products/macson-mark1/micro-habits-for-anxiety-selar.com-698e3da310e9b.jpeg", title: "Micro Habits for Anxiety" },
+  { url: "https://selar.com/s791c09q38", img: "https://files.selar.co/product-images/2026/products/macson-mark1/micro-habits-for-tough-da-selar.com-698e40477adc0.png", title: "Micro Habits for Tough Days" },
+  { url: "https://selar.com/987ofco0w7", img: "https://files.selar.co/product-images/2026/products/macson-mark1/micro-habits-for-confiden-selar.com-698e425529f38.png", title: "Micro Habits for Confidence" },
+  { url: "https://selar.com/7l12r21lda", img: "https://files.selar.co/product-images/2026/products/macson-mark1/micro-habit-for-focus-selar.com-698e47df737c2.png", title: "Micro Habits for Focus" },
+  { url: "https://selar.com/33uey731n3", img: "https://files.selar.co/product-images/2026/products/macson-mark1/micro-habits-for-sleep-selar.com-698e4ea1ca204.jpeg", title: "Micro Habits for Sleep" },
+  { url: "https://selar.com/gh6v67n7f7", img: "https://files.selar.co/product-images/2026/products/macson-mark1/your-phone-is-enough-12-o-selar.com-69a95ae964c6c.jpeg", title: "Your Phone is Enough" },
+  { url: "https://selar.com/3p6302t731", img: "https://files.selar.co/product-images/2026/products/macson-mark1/laptop-money-how-to-start-selar.com-69a95ba3b61bd.png", title: "Laptop Money: How to Start" },
+  { url: "https://selar.com/2178r40742", img: "https://files.selar.co/product-images/2026/products/macson-mark1/side-hustle-blueprint-the-selar.com-69a95c216ebe8.png", title: "Side Hustle Blueprint" },
+  { url: "https://selar.com/e2d205z359", img: "https://files.selar.co/product-images/2026/products/macson-mark1/the-invisible-muscle-how--selar.com-69a95cc4a7166.jpeg", title: "The Invisible Muscle" },
+  { url: "https://selar.com/11720pg206", img: "https://files.selar.co/product-images/2026/products/macson-mark1/the-desk-survival-guide-selar.com-69a95d5553910.png", title: "The Desk Survival Guide" },
+  { url: "https://selar.com/737mseu4fl", img: "https://files.selar.co/product-images/2026/products/macson-mark1/the-belly-reset-21-days-t-selar.com-69a95dde9439a.png", title: "The Belly Reset: 21 Days" },
+  { url: "https://selar.com/2772q1la67", img: "https://files.selar.co/product-images/2026/products/macson-mark1/the-10pm-decision-a-sleep-selar.com-69a95f3e51e3f.jpeg", title: "The 10PM Decision: A Sleep Guide" },
+  { url: "https://selar.com/338i7s607u", img: "https://files.selar.co/product-images/2026/products/macson-mark1/diabetic-friendly-meal-pl-selar.com-69a9639b0626f.jpeg", title: "Diabetic-Friendly Meal Plans" },
+  { url: "https://selar.com/7n24n29u1r", img: "https://files.selar.co/product-images/2026/products/macson-mark1/strong-at-60-the-safe-sim-selar.com-69a971de2739a.jpeg", title: "Strong at 60" },
+  { url: "https://selar.com/33uey731n3", img: "https://files.selar.co/product-images/2026/products/macson-mark1/the-calm-reset-a-practica-selar.com-69a976c148d11.jpeg", title: "The Calm Reset" }
 ];
 
 const container = document.getElementById("books");
-books.forEach(book => {
+books.forEach(book=>{
   const card = document.createElement("div");
   card.className = "book";
   card.innerHTML = `
-    <img src="${book.img}" alt="Book Cover">
+    <img src="${book.img}" alt="${book.title}">
+    <div class="book-title">${book.title}</div>
     <a href="${book.url}" target="_blank">View Book</a>
   `;
   container.appendChild(card);
