@@ -1,43 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>Your Ebook Library</title>
+<title>Ebook Library</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
 body{
 font-family:Arial;
+background:#0f172a;
+color:white;
 margin:0;
-background:#f5f5f5;
+text-align:center;
+}
+
+header{
+padding:60px 20px;
 }
 
 .container{
-max-width:1200px;
-margin:auto;
-padding:40px 20px;
-}
-
-.hero{
-text-align:center;
-margin-bottom:50px;
-}
-
-.books{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:28px;
+gap:25px;
+padding:40px;
+max-width:1200px;
+margin:auto;
 }
 
 .book{
-background:white;
-padding:18px;
+background:#1e293b;
+padding:15px;
 border-radius:10px;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
-text-align:center;
 }
 
 .book img{
@@ -47,12 +41,13 @@ border-radius:6px;
 
 .btn{
 display:inline-block;
-background:black;
-color:white;
-padding:10px 18px;
-border-radius:6px;
-text-decoration:none;
 margin-top:10px;
+padding:10px 16px;
+background:#22c55e;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
 }
 
 </style>
@@ -61,85 +56,29 @@ margin-top:10px;
 
 <body>
 
+<header>
+<h1>Your Ebook Library</h1>
+<p>Discover more guides below</p>
+</header>
+
 <div class="container">
 
-<div class="hero">
+<a class="book" href="https://selar.com/25q9751553" target="_blank">
+<img src="https://picsum.photos/300/400?1">
+<div class="btn">View Book</div>
+</a>
 
-<h1>✅ Your Book Is Ready</h1>
+<a class="book" href="https://selar.com/s791c09q38" target="_blank">
+<img src="https://picsum.photos/300/400?2">
+<div class="btn">View Book</div>
+</a>
 
-<p>Explore more books readers love.</p>
+<a class="book" href="https://selar.com/987ofco0w7" target="_blank">
+<img src="https://picsum.photos/300/400?3">
+<div class="btn">View Book</div>
+</a>
 
 </div>
-
-<div id="bookGrid" class="books"></div>
-
-</div>
-
-<script>
-
-const books = [
-
-"https://selar.com/25q9751553",
-"https://selar.com/s791c09q38",
-"https://selar.com/987ofco0w7",
-"https://selar.com/7l12r21lda",
-"https://selar.com/33uey731n3",
-"https://selar.com/gh6v67n7f7",
-"https://selar.com/3p6302t731",
-"https://selar.com/2178r40742",
-"https://selar.com/e2d205z359",
-"https://selar.com/11720pg206",
-"https://selar.com/737mseu4fl",
-"https://selar.com/2772q1la67",
-"https://selar.com/338i7s607u",
-"https://selar.com/7n24n29u1r"
-
-];
-
-const grid = document.getElementById("bookGrid");
-
-async function loadBook(url){
-
-try{
-
-const res = await fetch("https://api.allorigins.win/raw?url="+encodeURIComponent(url));
-
-const html = await res.text();
-
-const parser = new DOMParser();
-
-const doc = parser.parseFromString(html,"text/html");
-
-const title = doc.querySelector("meta[property='og:title']")?.content || "Book";
-
-const desc = doc.querySelector("meta[property='og:description']")?.content || "";
-
-const img = doc.querySelector("meta[property='og:image']")?.content || "";
-
-const card = document.createElement("div");
-
-card.className="book";
-
-card.innerHTML = `
-<img src="${img}">
-<h3>${title}</h3>
-<p>${desc.substring(0,90)}...</p>
-<a class="btn" href="${url}" target="_blank">View Book</a>
-`;
-
-grid.appendChild(card);
-
-}catch(err){
-
-console.log("Error loading",url);
-
-}
-
-}
-
-books.forEach(loadBook);
-
-</script>
 
 </body>
 </html>
