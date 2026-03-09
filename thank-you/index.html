@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ebook Library</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body{
+font-family:Arial;
+background:#0f172a;
+color:white;
+margin:0;
+text-align:center;
+}
+
+header{
+padding:60px 20px;
+}
+
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+padding:40px;
+max-width:1200px;
+margin:auto;
+}
+
+.book{
+background:#1e293b;
+padding:15px;
+border-radius:10px;
+}
+
+.book img{
+width:100%;
+border-radius:6px;
+}
+
+.btn{
+display:inline-block;
+margin-top:10px;
+padding:10px 16px;
+background:#22c55e;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Your Ebook Library</h1>
+<p>Discover more guides below</p>
+</header>
+
+<div class="container">
+
+<a class="book" href="https://selar.com/25q9751553" target="_blank">
+<img src="https://picsum.photos/300/400?1">
+<div class="btn">View Book</div>
+</a>
+
+<a class="book" href="https://selar.com/s791c09q38" target="_blank">
+<img src="https://picsum.photos/300/400?2">
+<div class="btn">View Book</div>
+</a>
+
+<a class="book" href="https://selar.com/987ofco0w7" target="_blank">
+<img src="https://picsum.photos/300/400?3">
+<div class="btn">View Book</div>
+</a>
+
+</div>
+
+</body>
+</html>
