@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+  <defs>
+    <linearGradient id="smallGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Book Cover -->
+  <rect x="3" y="3" width="9" height="10" rx="1" fill="url(#smallGradient)"/>
+  
+  <!-- Book Spine -->
+  <rect x="3" y="3" width="2" height="10" fill="#15803d" opacity="0.5"/>
+  
+  <!-- Pages -->
+  <rect x="5" y="4" width="6" height="8" fill="#f8fafc"/>
+  
+  <!-- Page Lines -->
+  <line x1="6" y1="6" x2="10" y2="6" stroke="#94a3b8" stroke-width="0.5" opacity="0.6"/>
+  <line x1="6" y1="8" x2="10" y2="8" stroke="#94a3b8" stroke-width="0.5" opacity="0.6"/>
+  <line x1="6" y1="10" x2="9" y2="10" stroke="#94a3b8" stroke-width="0.5" opacity="0.6"/>
+</svg>
