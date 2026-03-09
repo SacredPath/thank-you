@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thank You! Your Ebook Library Awaits</title>
+<title>Thank You! Macson Mark's Ebook Library Awaits</title>
 
-<meta name="description" content="Thank you for your purchase! Explore our full collection of ebooks for self-improvement, productivity, health, and wealth.">
+<meta name="description" content="Thank you for your purchase! Explore Macson Mark's full collection of ebooks for self-improvement, productivity, health, and wealth.">
 
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -171,11 +171,81 @@ p{
   animation: slideInLeft 0.8s ease-out;
   animation-fill-mode: both;
   transition: 0.3s;
+  position: relative;
 }
 
 .bundle-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.bundle-tooltip {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: 2px solid #22c55e;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  width: 280px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.bundle-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: #22c55e;
+}
+
+.bundle-tooltip h4 {
+  color: #22c55e;
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.bundle-tooltip ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: none;
+}
+
+.bundle-tooltip li {
+  margin: 5px 0;
+  position: relative;
+  padding-left: 15px;
+}
+
+.bundle-tooltip li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.bundle-card:hover .bundle-tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -30px;
+}
+
+.mega-bundle:hover .bundle-tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -40px;
 }
 
 .bundle-card:nth-child(1) { animation-delay: 0.1s; }
@@ -216,10 +286,10 @@ footer{
 
 <header>
 <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 20px;">
-  <img src="logo.svg" alt="Ebook Library" style="height: 50px;">
+  <img src="logo.svg" alt="Macson Mark's Library" style="height: 50px;">
 </div>
 <h1>🎉 Thank You For Your Purchase!</h1>
-<p>You now have access to your ebook. While you wait for your download link, explore our full collection of 15 ebooks below.</p>
+<p>You now have access to your ebook from Macson Mark's Library. While you wait for your download link, explore our full collection of 15 ebooks below.</p>
 </header>
 
 <!-- Special Bundles Section -->
@@ -230,14 +300,18 @@ footer{
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
     <!-- Mental Health Bundle -->
     <div class="bundle-card" style="background: white; color: #0f172a; padding: 25px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+      <div class="bundle-tooltip">
+        <h4>🧠 Mental Health Mastery</h4>
+        <ul>
+          <li>Micro Habits for Anxiety</li>
+          <li>Micro Habits for Confidence</li>
+          <li>Micro Habits for Focus</li>
+          <li>Micro Habits for Tough Days</li>
+          <li>The Calm Reset</li>
+        </ul>
+      </div>
       <h3 style="color: #22c55e; font-size: 24px; margin-bottom: 15px;">🧠 Mental Health Mastery</h3>
-      <ul style="text-align: left; margin: 20px 0;">
-        <li>Micro Habits for Anxiety</li>
-        <li>Micro Habits for Confidence</li>
-        <li>Micro Habits for Focus</li>
-        <li>Micro Habits for Tough Days</li>
-        <li>The Calm Reset</li>
-      </ul>
+      <p style="font-size: 14px; color: #64748b; margin-bottom: 15px;">Hover to see contents</p>
       <div style="text-decoration: line-through; color: #94a3b8; font-size: 18px;">₦22,500</div>
       <div class="price-tag" style="color: #22c55e; font-size: 28px; font-weight: bold; margin: 10px 0;">₦15,000</div>
       <div style="background: #ef4444; color: white; padding: 5px 10px; border-radius: 20px; display: inline-block; margin-bottom: 15px; font-weight: bold;">Save ₦7,500!</div>
@@ -247,14 +321,18 @@ footer{
     
     <!-- Wealth & Productivity Bundle -->
     <div class="bundle-card" style="background: white; color: #0f172a; padding: 25px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+      <div class="bundle-tooltip">
+        <h4>💰 Wealth Accelerator Pack</h4>
+        <ul>
+          <li>Laptop Money: How to Start</li>
+          <li>Side Hustle Blueprint</li>
+          <li>Your Phone is Enough</li>
+          <li>The Invisible Muscle</li>
+          <li>The Desk Survival Guide</li>
+        </ul>
+      </div>
       <h3 style="color: #22c55e; font-size: 24px; margin-bottom: 15px;">💰 Wealth Accelerator Pack</h3>
-      <ul style="text-align: left; margin: 20px 0;">
-        <li>Laptop Money: How to Start</li>
-        <li>Side Hustle Blueprint</li>
-        <li>Your Phone is Enough</li>
-        <li>The Invisible Muscle</li>
-        <li>The Desk Survival Guide</li>
-      </ul>
+      <p style="font-size: 14px; color: #64748b; margin-bottom: 15px;">Hover to see contents</p>
       <div style="text-decoration: line-through; color: #94a3b8; font-size: 18px;">₦22,500</div>
       <div class="price-tag" style="color: #22c55e; font-size: 28px; font-weight: bold; margin: 10px 0;">₦15,000</div>
       <div style="background: #ef4444; color: white; padding: 5px 10px; border-radius: 20px; display: inline-block; margin-bottom: 15px; font-weight: bold;">Save ₦7,500!</div>
@@ -264,14 +342,18 @@ footer{
     
     <!-- Health & Wellness Bundle -->
     <div class="bundle-card" style="background: white; color: #0f172a; padding: 25px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+      <div class="bundle-tooltip">
+        <h4>🏃‍♂️ Health Transformation Kit</h4>
+        <ul>
+          <li>Micro Habits for Sleep</li>
+          <li>The 10PM Decision</li>
+          <li>The Belly Reset: 21 Days</li>
+          <li>Diabetic-Friendly Meal Plans</li>
+          <li>Strong at 60</li>
+        </ul>
+      </div>
       <h3 style="color: #22c55e; font-size: 24px; margin-bottom: 15px;">🏃‍♂️ Health Transformation Kit</h3>
-      <ul style="text-align: left; margin: 20px 0;">
-        <li>Micro Habits for Sleep</li>
-        <li>The 10PM Decision</li>
-        <li>The Belly Reset: 21 Days</li>
-        <li>Diabetic-Friendly Meal Plans</li>
-        <li>Strong at 60</li>
-      </ul>
+      <p style="font-size: 14px; color: #64748b; margin-bottom: 15px;">Hover to see contents</p>
       <div style="text-decoration: line-through; color: #94a3b8; font-size: 18px;">₦22,500</div>
       <div class="price-tag" style="color: #22c55e; font-size: 28px; font-weight: bold; margin: 10px 0;">₦15,000</div>
       <div style="background: #ef4444; color: white; padding: 5px 10px; border-radius: 20px; display: inline-block; margin-bottom: 15px; font-weight: bold;">Save ₦7,500!</div>
@@ -280,9 +362,29 @@ footer{
     </div>
   </div>
   
-  <div class="mega-bundle" style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; margin-top: 30px;">
+  <div class="mega-bundle" style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; margin-top: 30px; position: relative;">
+    <div class="bundle-tooltip" style="width: 400px; top: -30px;">
+      <h4>🎯 Complete Ebook Library</h4>
+      <ul style="columns: 2; column-gap: 20px;">
+        <li>Micro Habits for Anxiety</li>
+        <li>Micro Habits for Confidence</li>
+        <li>Micro Habits for Focus</li>
+        <li>Micro Habits for Tough Days</li>
+        <li>Micro Habits for Sleep</li>
+        <li>Your Phone is Enough</li>
+        <li>Laptop Money: How to Start</li>
+        <li>Side Hustle Blueprint</li>
+        <li>The Invisible Muscle</li>
+        <li>The Desk Survival Guide</li>
+        <li>The Belly Reset: 21 Days</li>
+        <li>The 10PM Decision</li>
+        <li>Diabetic-Friendly Meal Plans</li>
+        <li>Strong at 60</li>
+        <li>The Calm Reset</li>
+      </ul>
+    </div>
     <h3 style="color: white; font-size: 24px; margin-bottom: 15px;">🎯 MEGA BUNDLE - All 15 Books!</h3>
-    <p style="color: white; font-size: 18px; margin-bottom: 15px;">Get EVERYTHING for just ₦35,000 (Save ₦32,500!)</p>
+    <p style="color: white; font-size: 18px; margin-bottom: 15px;">Hover to see all contents</p>
     <div style="text-decoration: line-through; color: rgba(255,255,255,0.8); font-size: 20px;">₦67,500</div>
     <div class="price-tag" style="color: white; font-size: 36px; font-weight: bold; margin: 10px 0;">₦35,000</div>
     <div style="background: #fbbf24; color: #0f172a; padding: 8px 15px; border-radius: 20px; display: inline-block; margin-bottom: 15px; font-weight: bold; font-size: 18px;">BEST VALUE - Save 48%!</div>
@@ -296,7 +398,7 @@ footer{
 <div class="grid" id="books"></div>
 
 <footer>
-<p>More knowledge. More income. More freedom.</p>
+<p>Macson Mark's Library | More knowledge. More income. More freedom.</p>
 </footer>
 
 <script>
